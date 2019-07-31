@@ -4,7 +4,7 @@
 
 Compare two swagger API specifications(1.x or v2.0) and render the difference to html file or markdown file.
 
-## :black_large_square: Command line interface (CLI) 
+## :black_large_square: Command line interface (CLI)
 
 ```shell
 $ java -jar swagger-diff.jar --help
@@ -100,7 +100,7 @@ try {
             "testDiff.md");
     fw.write(render);
     fw.close();
-    
+
 } catch (IOException e) {
     e.printStackTrace();
 }
@@ -116,42 +116,42 @@ try {
 
 ### What's Changed
 ---
-* `PUT` /pet Update an existing pet  
+* `PUT` /pet Update an existing pet
     Parameter
 
         Add body.newFeild //a feild demo by sayi
         Add body.category.newCatFeild
         Delete body.category.name
-* `POST` /pet Add a new pet to the store  
+* `POST` /pet Add a new pet to the store
     Parameter
 
         Add tags //add new query param demo
         Add body.newFeild //a feild demo by sayi
         Add body.category.newCatFeild
         Delete body.category.name
-* `DELETE` /pet/{petId} Deletes a pet  
+* `DELETE` /pet/{petId} Deletes a pet
     Parameter
 
         Add newHeaderParam
-* `POST` /pet/{petId}/uploadImage uploads an image for pet  
+* `POST` /pet/{petId}/uploadImage uploads an image for pet
     Parameter
 
         petId change into not required Notes ID of pet to update change into ID of pet to update, default false
-* `POST` /user Create user  
+* `POST` /user Create user
     Parameter
 
         Add body.newUserFeild //a new user feild demo
         Delete body.phone
-* `GET` /user/login Logs user into the system  
+* `GET` /user/login Logs user into the system
     Parameter
 
         Delete password //The password for login in clear text
-* `GET` /user/{username} Get user by user name  
+* `GET` /user/{username} Get user by user name
     Return Type
 
         Add newUserFeild //a new user feild demo
         Delete phone
-* `PUT` /user/{username} Updated user  
+* `PUT` /user/{username} Updated user
     Parameter
 
         Add body.newUserFeild //a new user feild demo
@@ -162,6 +162,6 @@ try {
 ## How it works
 ![image](./swagger-diff.png)
 
-
-
-
+```bash
+mvn clean install -Prelease
+```

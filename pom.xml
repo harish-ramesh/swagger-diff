@@ -93,6 +93,24 @@
 			<id>release</id>
 			<build>
 				<plugins>
+						<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-shade-plugin</artifactId>
+								<version>2.3</version>
+								<executions>
+								  <execution>
+									<phase>package</phase>
+									<goals>
+									  <goal>shade</goal>
+									</goals>
+									<configuration>
+									  <shadedArtifactAttached>true</shadedArtifactAttached>
+									  <shadedClassifierName>runnable</shadedClassifierName>
+									</configuration>
+								  </execution>
+								</executions>
+							  </plugin>
+
 					<plugin>
 						<artifactId>maven-compiler-plugin</artifactId>
 						<configuration>
@@ -140,16 +158,15 @@
 					<!-- GPG -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>1.5</version>
-						<executions>
-							<execution>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+								<archive>
+								  <manifest>
+									<addClasspath>true</addClasspath>
+									<mainClass>com.deepoove.swagger.diff.cli.CLI</mainClass>
+								  </manifest>
+								</archive>
+							  </configuration>
 					</plugin>
 				</plugins>
 			</build>
